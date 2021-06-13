@@ -1,4 +1,4 @@
-" configurations v6
+" configurations v7
 function Cfg(fn)
   exec 'source ' . stdpath('config') . '/Cfg/' . a:fn
 endfunction

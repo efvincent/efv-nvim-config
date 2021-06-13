@@ -5,26 +5,27 @@ if &compatible
   set nocompatible  " Be iMproved
 endif
 
-set runtimepath+=/Users/eric.vincent/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-call dein#begin('/Users/eric.vincent/.config/nvim/dein')
+" the runtime path is where vim looks for things. Tell vim where dein is, then
+" call dein to initialize the plugin system
+exec 'set runtimepath+=' . stdpath('config') . '/dein/repos/github.com/Shougo/dein.vim'
+call dein#begin(stdpath('config') . '/dein')
 
-" Let dein manage dein
-call dein#add('/Users/eric.vincent/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
+" Let dein manage itself
+call dein#add(stdpath('config') . '/dein/repos/github.com/Shougo/dein.vim')
 
+" My plugins
 call dein#add('neoclide/coc.nvim')
 call dein#add('luochen1990/rainbow')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 call dein#add('trusktr/seti.vim')
 
-" Required:
+" Required by dein
 call dein#end()
-
-" Required:
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
+" have dein check for new plugins to install. Slows startup down a tiny bit
 if dein#check_install()
   call dein#install()
 endif
