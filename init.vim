@@ -1,6 +1,10 @@
 " configurations v6
-source $HOME/.config/nvim/cfg/plugins.vim
-source $HOME/.config/nvim/cfg/general.vim
-source $HOME/.config/nvim/cfg/coc.vim
-source $HOME/.config/nvim/cfg/rainbow.vim
-source $HOME/.config/nvim/cfg/Haskell.vim
+function Cfg(fn)
+  exec 'source ' . stdpath('config') . '/Cfg/' . a:fn
+endfunction
+
+call Cfg('plugins.vim')
+call Cfg('general.vim')
+call Cfg('coc.vim')
+call Cfg('rainbow.vim')
+call Cfg('Haskell.vim')
