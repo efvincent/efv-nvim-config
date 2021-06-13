@@ -1,0 +1,74 @@
+{
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "filetypes": ["haskell", "lhaskell"]
+    }
+  },
+  "explorer.width": 40,
+  "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
+  "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
+  "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.openAction.strategy": "tab",
+  "explorer.quitOnOpen": true,
+  "explorer.keyMappings.global": {
+    "i": false,
+
+    "*": "toggleSelection",
+    "<tab>": "actionMenu",
+
+    "gk": ["wait", "expandablePrev"],
+    "gj": ["wait", "expandableNext"],
+    "h": ["wait", "collapse"],
+    "l": ["wait", "expandable?", "expand", "open"],
+    "J": ["wait", "toggleSelection", "normal:j"],
+    "K": ["wait", "toggleSelection", "normal:k"],
+    "gl": ["wait", "expand:recursive"],
+    "gh": ["wait", "collapse:recursive"],
+    "<2-LeftMouse>": [
+      "expandable?",
+      ["expanded?", "collapse", "expand"],
+      "open"
+    ],
+    "o": ["wait", "expanded?", "collapse", "expand"],
+    "<cr>": ["wait", "expandable?", "cd", "open"],
+    "e": "open",
+    "s": "open:vsplit",
+    "S": "open:split",
+    "t": "open:tab",
+    "<bs>": ["wait", "gotoParent"],
+
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
+    "yy": "copyFile",
+    "dd": "cutFile",
+    "p": "pasteFile",
+    "df": "delete",
+    "dF": "deleteForever",
+
+    "a": "addFile",
+    "A": "addDirectory",
+    "r": "rename",
+
+    "g<dot>": "toggleHidden",
+    "R": "refresh",
+
+    "?": "help",
+    "q": "quit",
+    "<esc>": "esc",
+
+    "f": "search",
+    "F": "searchRecursive",
+
+    "gf": "gotoSource:file",
+    "gb": "gotoSource:buffer",
+
+    "<<": "gitStage",
+    ">>": "gitUnstage"
+  },
+  "clangd.path": "/Users/eric.vincent/.config/coc/extensions/coc-clangd-data/install/12.0.0/clangd_12.0.0/bin/clangd"
+}
