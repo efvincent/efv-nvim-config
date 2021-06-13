@@ -37,6 +37,12 @@ set list
 set t_Co=256
 set nohlsearch
 
+" disable netrw completely; in the plugins init file, set up coc-explorer to do
+" the job. Also in the main init.vim file, make the plugins come before this
+" general init file so that coc-explorer is ready to go when we cripple this
+let g:loaded_netrw= 1 
+let g:netrw_loaded_netrwPlugin= 1
+
 " open a terminal in the directory of the current file
 " TODO - doesn't seem to work, opened to where the explorer
 " was already opened

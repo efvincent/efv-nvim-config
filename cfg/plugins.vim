@@ -30,4 +30,14 @@ if dein#check_install()
   call dein#install()
 endif
 
+" have directories (file type netrw) be handled by coc-explorer
+fu! s:isdir(dir) abort
+    return !empty(a:dir) && (isdirectory(a:dir) ||
+                \ (!empty($SYSTEMDRIVE) && isdirectory('/'.tolower($SYSTEMDRIVE[0]).a:dir)))
+endfu
 
+augroup explorer
+    au!
+    au VimEnter * sil! au! FileExplorer *
+    au BufEnter * if s:isdir(expand('%')) | bd | exe 'CocCommand explorer' | endif
+augroup END
